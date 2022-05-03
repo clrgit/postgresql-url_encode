@@ -1,0 +1,3 @@
+[submodule "url_encode"]
+	path = url_encode
+	url = https://github.com/okbob/url_encode
