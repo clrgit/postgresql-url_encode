@@ -1,25 +1,26 @@
 # QRPM configuration file. See https://github.com/clrgit/qrpm
 
-name: $pg-url_encode
+name: $pg_name-url_encode
 summary: Adds the url_encode extension to postgres
 description: RPM wrapper for the postgres url_encode extension (https://github.com/okbob/url_encode)
 version: 1.2.3
 requires:
-  - $pg-server
-  - $pg-libs
+  - $pg_name-server
+  - $pg_name-libs
 
-pg: postgresql${pg_version}
+pg_name: postgresql${pg_version}
 pg_version: 13
+pg_directory: /usr/pgsql-${pg_version}
 
 make:
   - git submodule init
   - git submodule update
   - cd url_encode; make
 
-/usr/pgsql-${pg_version}/share/extension:
+$pg_directory/share/extension:
   - url_encode/url_encode.control
   - url_encode/sql/url_encode--1.2.sql
 
-/usr/pgsql-${pg_version}/lib:
+$pg_directory/lib:
   - url_encode/src/url_encode.so
 
