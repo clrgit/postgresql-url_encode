@@ -1,0 +1,10 @@
+pg:
+  vendor: pgdg
+  name: postgresql$pg.version
+  vendor_name: $pg.name
+  version: $(pg_config --version | sed -e 's/^[^0-9]* \([0-9]\+\).*$/\1/' -e 's/\..*//')
+  pckdir: pgsql-$pg.version
+  libdir: /usr/$pg.pckdir/lib
+  extdir: $pg.libdir/extension
+  sharedir: /usr/$pg.pckdir/share
+
