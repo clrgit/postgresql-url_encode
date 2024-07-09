@@ -1,0 +1,14 @@
+name: $pg.name-$package
+package: url_encode
+summary: Adds the '$package' extension to $pg.name
+description: RPM wrapper for the postgres $package extension (https://github.com/okbob/url_encode)
+require: $pg.name-server
+include: ./pgdg-15.yml
+srcdir: $package
+
+$pg.extsharedir:
+  - url_encode.control
+  - sql/url_encode--1.2.sql
+
+$pg.libdir: src/url_encode.so
+
