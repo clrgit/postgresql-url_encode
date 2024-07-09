@@ -1,4 +1,5 @@
 name: $pg.name-$package
+version: 1.0.1
 package: url_encode
 summary: Adds the '$package' extension to $pg.name
 description: RPM wrapper for the postgres $package extension (https://github.com/okbob/url_encode)
